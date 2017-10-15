@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 
 Java test3 Java test Java test
 
 Java_test3
 
+=======
+lab3 
+>>>>>>> B2
