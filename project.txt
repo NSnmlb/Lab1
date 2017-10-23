@@ -1,0 +1,5 @@
+ if (flag==0)
+		    {
+		      return "No word1 or word2 in the graph!";
+		    }
+//xiugai
