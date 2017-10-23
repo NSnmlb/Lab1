@@ -1,5 +1,3 @@
-package 实验一;
-//git edit 2
 import java.io.File;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
@@ -14,8 +12,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.*;
 public class test { 
-	    public static int Linjie[][]; //邻接矩阵
-	    public static String[] word_list;//存储字母的数组
+	    public static int linjie[][]; //邻接矩阵
+	    public static String[] wordlist;//存储字母的数组
 	    public static int k=1;//存储字母的共使用了k个数组内存
 	    public static int fina1[] ; 
 	    public static String queryBridgeWords(String word1, String word2)
@@ -27,23 +25,18 @@ public class test {
 				fina1[b]=-3;
 		    for (i=0;i<k;i++)
 		    {
-		    	
-		       if (word1.equals(word_list[i]))
+		       if (word1.equals(wordlist[i]))
 		    	{
-		    	   
 		    		for (j=0;j<k;j++)
 		    		{
-		    			if (word2.equals(word_list[j]))
+		    			if (word2.equals(wordlist[j]))
 		    			{
 		    				flag=1;
 		    				break;
-		    			
 		    			}
 		    		}
 		    	break;
 		    	}
-		    	
-		    		
 		    }
 		    if (flag==0)
 		    {
@@ -58,7 +51,7 @@ public class test {
 		    	dist=new int[99];
 		        for (v1=0;v1<k;v1++)
 		    		{
-		    			if(Linjie[i][v1]!=99)
+		    			if(linjie[i][v1]!=99)
 		    			{
 		    				if (v1==j)
 		    				   continue;
@@ -70,7 +63,7 @@ public class test {
 		    		}
 		        for (v2=0;v2<k;v2++)
 	    		{
-	    			if(Linjie[v2][j]!=99)
+	    			if(linjie[v2][j]!=99)
 	    			{
 	    				if (v2==i)
 	    				   continue;
@@ -80,7 +73,6 @@ public class test {
 	    			else 
 	    				dist[v2]=-2;
 	    		}
-		        
 		        mystring1 = "The bridge words from "+word1+" to "+word2+" is ";
 		    	for(int l=0;l<k;l++)
 		    	{ 
@@ -88,7 +80,7 @@ public class test {
 		    		{
 		    			if((i==pre[l])&&(dist[m]==j)&&(l==m))
 		    			{	
-		    				mystring1=mystring1+word_list[l]+" ";
+		    				mystring1=mystring1+wordlist[l]+" ";
 		    			    fina1[bridge++]=l;
 		    			}
 		    			
@@ -112,7 +104,7 @@ public class test {
 	    	{
 	    		for (j=0;j<k;j++)
 	    		{
-	    			dist[i][j]=Linjie[i][j];
+	    			dist[i][j]=linjie[i][j];
 	    			if (dist[i][j]!=99)
 	    			{
 	    				pre[j]=i;
@@ -146,7 +138,7 @@ public class test {
 	    	String  mystring=""; 
 	    	for (i=0;i<k;i++)
 		    {
-	    		if (word.equals(word_list[i]))
+	    		if (word.equals(wordlist[i]))
 	    			break;
 	    	}
     		for(j=0;j<k;j++)
@@ -155,7 +147,7 @@ public class test {
     				continue;
     			else if (i!=j)
     			{	
-    				mystring=mystring+calcShortestPath(word,word_list[j])+"\r"+"权值为:\r"+dist[i][j]+"\r";
+    				mystring=mystring+calcShortestPath(word,wordlist[j])+"\r"+"权值为:\r"+dist[i][j]+"\r";
     				
     			}   
     		}
@@ -167,12 +159,12 @@ public class test {
 	    	int v1,v2,i,j,q=0,min;
 	    	for (v1=0;v1<k;v1++)
 	    	{
-	    		if (word1.equals(word_list[v1]))
+	    		if (word1.equals(wordlist[v1]))
 	    			break;
 	    	}
 	    	for (v2=0;v2<k;v2++)
 	    	{
-	    		if (word2.equals(word_list[v2]))
+	    		if (word2.equals(wordlist[v2]))
 	    			break;
 	    	}
 	    	int pre[],fina[],dist[],path[];
@@ -182,8 +174,8 @@ public class test {
 	    	path=new int[99];
 	    	for (j=0;j<k;j++)
 	    	{
-	    		dist[j]=Linjie[v1][j];
-	    		if (Linjie[v1][j]==0)
+	    		dist[j]=linjie[v1][j];
+	    		if (linjie[v1][j]==0)
 	    			pre[j]=-1;
 	    		else 
 	    			pre[j]=v1;
@@ -205,9 +197,9 @@ public class test {
 	    		fina[q]=1; //标志为已选
 	    		for (j=0;j<k;j++)//更新最短路径
 	    		{
-	    			if ((fina[j]==0)&&(dist[j]>dist[q]+Linjie[q][j]))
+	    			if ((fina[j]==0)&&(dist[j]>dist[q]+linjie[q][j]))
 	    			{
-	    				dist[j]=dist[q]+Linjie[q][j];
+	    				dist[j]=dist[q]+linjie[q][j];
 	    				pre[j]=q;
 	    			}
 	    					
@@ -227,9 +219,8 @@ public class test {
 	    		i++;
 	    		
 	    	}
-	    	//System.out.println(word_list[path[i-1]]);
 	    	String str4="";
-	    	if (word2.equals(word_list[path[i-1]]))
+	    	if (word2.equals(wordlist[path[i-1]]))
 	    	{
 	    		str4=word1+" -> "+word2;
 	    	}
@@ -238,7 +229,7 @@ public class test {
 	    		str4=word1;
 	    		for (q=i-1;q>0;q--)
 	    		{
-	    			str4=str4+" -> "+word_list[path[q]];
+	    			str4=str4+" -> "+wordlist[path[q]];
 	    		}
 	    		str4=str4+" -> "+word2;
 	    	}
@@ -257,7 +248,7 @@ public class test {
 				 }
 				 else
 				 {
-					 str1=str1+inputArray[i]+" "+word_list[fina1[0]]+" ";
+					 str1=str1+inputArray[i]+" "+wordlist[fina1[0]]+" ";
 					 
 				 } 
 			}
@@ -265,11 +256,8 @@ public class test {
 		}		
         public static void main(String args[]) 
 		{
-		
-			//int Linjie[][];  //邻接矩阵
 			int times=0,i=0,j=0,qiu=0,z=0,flag=0,q=0;
-			//String word_list[];
-			word_list=new String[99];		
+			wordlist=new String[99];		
 			String Filename;
 			String s="";
 			Filename=JOptionPane.showInputDialog("输入文件路径");
@@ -298,7 +286,7 @@ public class test {
 		            }
 		        }		 		        
 		        String [] arr = s.split("\\s+");
-		        word_list[0]=arr[0];
+		        wordlist[0]=arr[0];
 		
 ///////////////////////////////////////////////////////////////////////////////////////////////////////		        
 		        for(i=1;i<arr.length;i++)  //对英文单词进行编号
@@ -317,19 +305,19 @@ public class test {
 		        	}
 		        	if(qiu==1)
 		        	{
-		        		word_list[k]=arr[i];
+		        		wordlist[k]=arr[i];
 		        		k=k+1;
 		        	}
 		        }
-		        //System.out.println(word_list[3]);
+		        //System.out.println(wordlist[3]);
 ////////////////////////////////////////////////////////////////////////////////////////////////
          //矩阵的初始化
-		        Linjie=new int[k][k];
+		        linjie=new int[k][k];
 		        for(i=0;i<k;i++)
 		        {
 		        	for(j=0;j<k;j++)
 		        	{
-		        		Linjie[i][j]=99;
+		        		linjie[i][j]=99;
 		        	}
 		        }
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -338,13 +326,13 @@ public class test {
 		        {    		      
 		        	for(j=0;j<k;j++)
 		        	{			        		
-		        		if(word_list[j].equals(arr[i])) 
+		        		if(wordlist[j].equals(arr[i])) 
 			        	{
 		        				for(q=0;q<k;q++)
 		        				{		        					
-		        					if(word_list[q].equals(arr[i+1]))
+		        					if(wordlist[q].equals(arr[i+1]))
 		        					{
-		        						Linjie[j][q]=1;
+		        						linjie[j][q]=1;
 		        						flag=1;
 		        						break;
 		        					}
@@ -357,9 +345,6 @@ public class test {
 		        	}
 		        	flag=0;
 		        }
-		        //Linjie[k-1][0]=1;
-		        
-
 		        for(i=0;i<arr.length-3;i++)
 		        {
 		        	for(j=i+2;j<arr.length-1;j++)
@@ -379,40 +364,37 @@ public class test {
 		        	 while(z<k)
 		        	    {
 		        	    	z=z+1;
-		        		     if(word_list[z-1].equals(arr[i]))
+		        		     if(wordlist[z-1].equals(arr[i]))
 		        		    {
-		        		    	 Linjie[z-1][z]=times+1;
+		        		    	 linjie[z-1][z]=times+1;
 		        		    	 break;
 		        		    }
 		        		     
 		        	     }
-		        		 
 		        		 times=0;
 		        }
 		        for(i=0;i<k;i++)
 		        {
 		        	for(j=0;j<k;j++)
 		        	{
-		        		System.out.print(Linjie[i][j]);
+		        		System.out.print(linjie[i][j]);
 		        		System.out.print(" ");
 		        	}
-		        	System.out.println("\n");
-		        	  
+		        	System.out.println("\n");  
 		        }
 		        reader.close();
 		    } catch (Exception e) {
 		        e.printStackTrace();
 		    }
-			//String a=queryBridgeWords("new","and");
-			//System.out.println(a);
-			//String s1=calcShortestPath("to", "strange");
-			///System.out.println(s1);
-			//String s2=calcShortestPath2("to");
-			//System.out.println(s2);
-			//String i1=queryBridgeWords("seek","new");
-			//System.out.println(i1);
-			String i2=generateNewText("explore new");
+			String a=queryBridgeWords("to","my");
+			System.out.println(a);
+			String s1=calcShortestPath("where", "my");
+			System.out.println(s1);
+			String s2=calcShortestPath2("where");
+			System.out.println(s2);
+			String i1=queryBridgeWords("are","is");
+			System.out.println(i1);
+			String i2=generateNewText("dwahd aidja aijd where ad is my");
 			System.out.println(i2);
 		}
-
 }
