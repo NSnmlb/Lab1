@@ -420,15 +420,15 @@ public class test {
 			///System.out.println(s1);
 			//String s2=calcShortestPath2("to");
 			//System.out.println(s2);
-			System.out.println("请输入你要查询的桥接词：");
+			/*System.out.println("请输入你要查询的桥接词：");
 			Scanner sc = new Scanner(System.in);
 			String word1 = sc.nextLine();
 			String word2 = sc.nextLine();
 			String i1=queryBridgeWords(word1,word2); 
 			System.out.println(i1);
-			sc.close();
-			//String i2=generateNewText("explore new");
-			//System.out.println(i2);
+			sc.close();*/
+			String i2=generateNewText("explore new");
+			System.out.println(i2);
 		}
 
 }
