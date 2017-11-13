@@ -275,16 +275,16 @@ public class test {
 			}
 		return str1+inputArray[inputArray.length-1];	
 		}		
-        public static void main(String args[]) 
+        public static void  init() 
 		{
 		
 	        
 			int times=0,i=0,j=0,qiu=0,z=0,flag=0,q=0;
 			word_list=new String[99];		
-			String Filename;
+			//String Filename;
 			String s="";
-			Filename=JOptionPane.showInputDialog("输入文件路径");
-			File file = new File(Filename);
+			//Filename=JOptionPane.showInputDialog("输入文件路径");
+			File file = new File("d:/test.txt");
 			Reader reader = null;
 			try {
 				System.out.println("以字符为单位读取文件内容，一次读一个字节：");				
@@ -415,20 +415,19 @@ public class test {
 		        e.printStackTrace();
 		    }
 			//String a=queryBridgeWords("new","and");
-			//System.out.println(a);
-			//String s1=calcShortestPath("to", "strange");
-			///System.out.println(s1);
+			 //System.out.println(a);
+			 //String s1=calcShortestPath("to", "strange");
+			 //System.out.println(s1);
 			//String s2=calcShortestPath2("to");
 			//System.out.println(s2);
-			System.out.println("请输入你要查询的桥接词：");
+			/*System.out.println("请输入你要查询的桥接词：");
 			Scanner sc = new Scanner(System.in);
 			String word1 = sc.nextLine();
 			String word2 = sc.nextLine();
 			String i1=queryBridgeWords(word1,word2); 
 			System.out.println(i1);
-			sc.close();
+			sc.close();*/
 			//String i2=generateNewText("explore new");
 			//System.out.println(i2);
 		}
-
 }
