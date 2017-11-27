@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.*;
 
 public class test { 
-	    public static  int Linjie[][]; //邻接矩阵
+	    public static  int  Linjie[][]; //邻接矩阵
 	    public static  String[] word_list;//存储字母的数组
 	    public static  int k=1;//存储字母的共使用了k个数组内存
 	    public static  int fina1[] ; 
@@ -275,7 +275,7 @@ public class test {
 			}
 		return str1+inputArray[inputArray.length-1];	
 		}		
-        public static void  init() 
+		public  static void main(String[] args) 
 		{
 		
 	        
@@ -416,8 +416,8 @@ public class test {
 		    }
 			//String a=queryBridgeWords("new","and");
 			 //System.out.println(a);
-			 //String s1=calcShortestPath("to", "strange");
-			 //System.out.println(s1);
+			 String s1=calcShortestPath("to", "strange");
+			 System.out.println(s1);
 			//String s2=calcShortestPath2("to");
 			//System.out.println(s2);
 			/*System.out.println("请输入你要查询的桥接词：");
@@ -427,12 +427,7 @@ public class test {
 			String i1=queryBridgeWords(word1,word2); 
 			System.out.println(i1);
 			sc.close();*/
-
-			String i2=generateNewText("explore new");
-			System.out.println(i2);
-
 			//String i2=generateNewText("explore new");
 			//System.out.println(i2);
-
 		}
 }
